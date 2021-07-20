@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class SecondActivity extends Activity implements View.OnClickListener {
+    //by this class new user will enter personal info and register to the app.
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     DBHelper dbHelper;
     public static EditText etName, etEmail, etNationality, etAge, etLastName, etPolicyNumber, etPhoneNumber;
@@ -27,7 +28,7 @@ public class SecondActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+// text input fields
         btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
         etName = (EditText) findViewById(R.id.etName);
@@ -47,6 +48,8 @@ public class SecondActivity extends Activity implements View.OnClickListener {
 
 
         if (v.getId() == R.id.btnAdd) {
+            //if button is clicked confirmation email will be send
+            //email,name and last name will be taken from text fields
             String Email = etEmail.getText().toString();
             String Name = etName.getText().toString();
             String LastName = etLastName.getText().toString();
@@ -88,6 +91,7 @@ public class SecondActivity extends Activity implements View.OnClickListener {
 
 
     public void CreateBase() {
+        //this method add data to database with user personal information
         String name = etName.getText().toString();
         String lastName = etLastName.getText().toString();
         String policyNumber = etPolicyNumber.getText().toString();

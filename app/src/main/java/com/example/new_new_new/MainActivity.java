@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    //this activity represent main screen with sign up and sign in buttons
     public static final String EXTRA_MESSAGE1 = "com.example.myfirstapp.MESSAGE";
     public static  String EXTRA_MESSAGE2 = "";
     public static final String EXTRA_MESSAGE3 = "";
@@ -46,15 +47,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+
         String email = EnterEmail.getText().toString();
         String policy_number = EnterPolicyNumber.getText().toString();
 
         if (v.getId() == R.id.btnSingUp) {
+            //if sign in button is clicked it will call second activity
             Intent intent1 = new Intent(this, SecondActivity.class);
 
 
             startActivity(intent1);
         } else if (v.getId() == R.id.btnSingIn) {
+            //if sign in button is clicked we will check if name and policy from text fields equal
+            //to the information from the database
+            //if user entered successfully third activity (personal dashboard) will be called .
 
 
             SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -97,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String message = "Id " + GetId + "\nName : " + GetName +"\nLast Name: " + GetLastName +"\nPolicy Number: " +
                                     GetPolicyNumber + "\nE-mail: " + GetEmail +
                                     "\nNationality: " + GetNationality + "\nAge: " + GetAge + "\nResult: " + GetResults + "\nAppointment: " + GetAppointment ;
-
+// call
                             Intent intent = new Intent(this, ThirdActivity.class);
                             intent.putExtra(EXTRA_MESSAGE1, message);
 

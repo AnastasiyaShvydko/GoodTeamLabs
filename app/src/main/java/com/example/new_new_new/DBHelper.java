@@ -4,10 +4,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
+    //this class help to create new user and store info in the database  when Second activity(Sign Up) is called and also
+    // it is used when user enters to the app.
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "contact_new_users.db";
     public static final String TABLE_CONTACTS = "contacts";
-
+//columns of the table
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "Name";
     public static final String KEY_LAST_NAME = "LastName";

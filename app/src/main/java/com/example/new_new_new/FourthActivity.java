@@ -21,19 +21,22 @@ import javax.activation.FileDataSource;
 import javax.sql.DataSource;
 
 public class FourthActivity extends Activity implements View.OnClickListener {
+    //this class is for setting of time slots.
     Button btn08,btn09,btn10,btn11,btn12,btn01,btn02,btn03,btn04,btn05,btn06,btn07;
+    //create DBHelper class instance;
     DBHelper dbHelper;
     EditText EnterName, EnterID;
     String name,last_name,email,policy_number,phone_number,welcome,part0,part1,part2,text;
+    //create DBAppointment class instance;
     DBAppointment dbAppointment;
-    FileDataSource sourse = new FileDataSource("src/main/res/drawable-v24/goodteam.png");
+
 
    String btn;
 
 
 
     protected void onCreate(Bundle savedInstanceState) {
-
+//creating buttons the name of each button is a time slot.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
         dbAppointment = new DBAppointment(this);
@@ -41,10 +44,12 @@ public class FourthActivity extends Activity implements View.OnClickListener {
 
         btn08 = findViewById(R.id.btn08);
         btn08.setOnClickListener(this);
+        //at first we set every button is not clickable
         btn08.setClickable(false);
+        //and colored it as a not available
         btn08.setBackgroundColor(Color.parseColor("#C3BFBF"));
 
-
+//check if time is available
         CheckAppointment(btn08,"08:00");
 
 
@@ -138,6 +143,9 @@ public class FourthActivity extends Activity implements View.OnClickListener {
 
     }
     public  void Send(String btn_name, View element){
+        //this method call another SetAppointment method , accordingly to the name and policy number
+        //add information about appointment to the users database, sent email message to the user,
+        //set button as not clickable with appropriate color
         SetAppointment();
         InsertToBase(btn_name);
         text = part0 + name + part1 + btn_name + part2;
@@ -150,7 +158,9 @@ public class FourthActivity extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
+        //find button by id and call Send() method
         if (v.getId() == R.id.btn08) {
             btn = "08:00";
             Send(btn,btn08);
@@ -230,16 +240,22 @@ public class FourthActivity extends Activity implements View.OnClickListener {
 
 
     public void CheckAppointment(Button button, String str_time) {
+//Access to database using DBAppointment class instance to check if time available in other words if
+// time there is in the database
 
         SQLiteDatabase db = dbAppointment.getReadableDatabase();
+        // by cursor iterate through database
         Cursor cursor = db.query(DBAppointment.TABLE_CONTACTS, null, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             int dateIndex = cursor.getColumnIndex(DBAppointment.KEY_DATE);
             int timeIndex = cursor.getColumnIndex(DBAppointment.KEY_TIME);
             do {
                // Log.d("mLog ", cursor.getString(timeIndex) + str_time);
+                //check if time in column equals to the the value of the button (str_time)
                 if (cursor.getString(timeIndex).equals(str_time) ) {
+                    //set button is clickable
                     button.setClickable(true);
+                    //set green "alive" color
                     button.setBackgroundColor(Color.parseColor("#01579B"));
 
                 }
@@ -251,6 +267,7 @@ public class FourthActivity extends Activity implements View.OnClickListener {
 
 
     public void SetAppointment() {
+        //Access to database using DBAppointment class instance
         SQLiteDatabase db = dbAppointment.getReadableDatabase();
         Cursor cursor = db.query(DBAppointment.TABLE_CONTACTS, null, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
@@ -262,12 +279,14 @@ public class FourthActivity extends Activity implements View.OnClickListener {
 
             do {
                 Log.d("mLog ", "DATABASE VERSION"+String.valueOf(DBAppointment.version));
-                //cursor.getString(1);
+
                 if (cursor.getString(timeIndex).equals(btn) ) {
 
-
+//put new content to the appointment_1 database
                     ContentValues contentValues = new ContentValues();
+                    //set time slot as n/a not available or dead
                     contentValues.put("Time", "n/a");
+                    //add name to the database of user who selected this time
                     contentValues.put(DBAppointment.KEY_NAME, name);
                    contentValues.put(DBAppointment.KEY_LAST_NAME, last_name);
                     contentValues.put(DBAppointment.KEY_POLICY_NUMBER, policy_number);
@@ -286,7 +305,8 @@ public class FourthActivity extends Activity implements View.OnClickListener {
 
 
     public void InsertToBase(String time) {
-
+// add information to the database where user information stores.
+// From here will be represent personal user info with scheduled appointment time
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         Log.d("mLog ", "hello");
 

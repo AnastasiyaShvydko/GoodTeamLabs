@@ -5,6 +5,7 @@ import android.content.Context;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DBAssetsHelper extends SQLiteAssetHelper {
+    //this class help to get information about results from database which stores in the assets.
     public static final String name = "contacts_results.db";
     public static final int version = 1;
     public static final String TABLE_CONTACTS = "contacts";

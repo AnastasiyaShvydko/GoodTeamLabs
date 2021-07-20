@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SixthActivity extends AppCompatActivity {
+    //this class represent test results info for users.By Using DBAssetsHelper instance we get access to database. Cursor instance  iterates through database and if according  to name and policy number test result
+    //is ready it will be displayed.
     TextView resultsInfo;
 
     String results,name,policy_number;

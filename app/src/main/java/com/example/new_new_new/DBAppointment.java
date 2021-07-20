@@ -6,11 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DBAppointment extends SQLiteAssetHelper {
+    // this class help to get information about available time slots from database which stores in assets
         public static final String name = "appointments_1.db";
         public static final int version = 1;
         public static final String TABLE_CONTACTS = "appointments";
 
-//
+//Columns of the table
         public static final String KEY_DATE = "Date";
         public static final String KEY_TIME = "Time";
         public static final String KEY_NAME = "Name";

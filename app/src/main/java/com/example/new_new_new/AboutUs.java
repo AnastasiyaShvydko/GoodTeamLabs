@@ -16,6 +16,7 @@ import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;
 public class AboutUs extends AppCompatActivity {
     @Override
+    //this is activity which represent our about us sheet.
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
