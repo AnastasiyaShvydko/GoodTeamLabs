@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A57DAC">
+    android:background="@drawable/abst"
+    tools:ignore="ExtraText">
 
     <TextView
         android:id="@+id/textView"
@@ -12,61 +13,72 @@
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:background="#DFCACA"
         android:fontFamily="sans-serif-black"
         android:lineSpacingExtra="8sp"
         android:text="       Welcome to GoodTeam Lab"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="normal"
         app:barrierMargin="@dimen/cardview_compat_inset_shadow"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/EnterName"
+        android:id="@+id/EnterEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="8dp"
+        android:alpha=".9"
+        android:background="@drawable/cyl"
         android:ems="10"
-        android:hint="Name"
+        android:hint="    Email"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/EnterID"
+        android:id="@+id/EnterPolicyNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginLeft="110dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
         android:layout_marginTop="40dp"
+        android:alpha=".9"
+        android:background="@drawable/cyl"
         android:ems="10"
-        android:hint="ID"
+        android:hint="    Policy Number"
         android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EnterName" />
+        app:layout_constraintTop_toBottomOf="@+id/EnterEmail" />
 
     <Button
         android:id="@+id/btnSingUp"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="50dp"
         android:onClick="onClick"
-        android:text=" SING UP"
+        android:text=" SIGN UP"
+        app:backgroundTint="#303F9F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/EnterPolicyNumber"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnSingIn"
@@ -74,13 +86,32 @@
         android:layout_height="50dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="71dp"
         android:layout_marginRight="71dp"
-        android:text="Sing In"
+        android:text="SIGN In"
+        app:backgroundTint="#303F9F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toEndOf="@+id/btnSingUp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/EnterPolicyNumber"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="306dp"
+        android:layout_height="201dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/goodteam" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

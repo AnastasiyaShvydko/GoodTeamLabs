@@ -5,12 +5,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "contactDbNew";
+    public static final String DATABASE_NAME = "contact_new_users.db";
     public static final String TABLE_CONTACTS = "contacts";
 
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "Name";
+    public static final String KEY_LAST_NAME = "LastName";
+    public static final String KEY_POLICY_NUMBER = "PolicyNumber";
     public static final String KEY_MAIL = "Mail";
+    public static final String KEY_PHONE_NUMBER = "PhoneNumber";
     public static final String KEY_NATIONALITY = "Nationality";
     public static final String KEY_AGE = "Age";
     public static final String KEY_RESULTS = "Results";
@@ -22,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-db.execSQL("create table "+ TABLE_CONTACTS + "(" + KEY_ID + " integer primary key,"+ KEY_NAME + " text," + KEY_MAIL + " text," + KEY_NATIONALITY + " text," + KEY_AGE + " text," + KEY_RESULTS + " text," + KEY_APPOINTMENT + " text" + ")");
+db.execSQL("create table "+ TABLE_CONTACTS + "(" + KEY_ID + " integer primary key,"+ KEY_NAME + " text,"+ KEY_LAST_NAME + " text,"+ KEY_POLICY_NUMBER + " text," + KEY_MAIL + " text,"+ KEY_PHONE_NUMBER + " text," + KEY_NATIONALITY + " text," + KEY_AGE + " text," + KEY_RESULTS + " text," + KEY_APPOINTMENT + " text" + ")");
     }
 
     @Override

@@ -108,3 +108,28 @@
 //        }
 //    }
 //}
+
+ //Integer test1_cost,test2_cost,total_cost;
+// CheckBox test1,test2;
+// test1 = (CheckBox)findViewById(R.id.test1);
+// test1.setOnClickListener(this);
+//test2 = (CheckBox)findViewById(R.id.test2);
+//  test2.setOnClickListener(this);
+// total_cost = 0;
+// test1_cost = 0;
+//test2_cost = 0;
+
+//@Override
+//public void onClick(View v) {
+//        if (test1.isChecked()) {
+//            test1_cost = 100;
+//
+//        }
+//
+//       else if (test2.isChecked()) {
+//            test2_cost = 500;
+//
+//        }
+//       total_cost = test1_cost+test2_cost;
+//        Log.d("mLog ",total_cost.toString());
+ //       }

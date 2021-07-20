@@ -1,18 +1,17 @@
 package com.example.new_new_new;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class ThirdActivity extends AppCompatActivity implements View.OnClickListener{
-    TextView PersonalData;
-    Button app;
-    String _name,_id;
+  //  TextView PersonalData;
+    CardView app,personalInfo,getResults,aboutus,price_list;
+   // Button app;
+    String name,last_name,id,email,policy_number,phone_number,nationality,age,appointment,results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,29 +19,72 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_third);
         Intent intent = getIntent();
         String message = intent.getStringExtra(SecondActivity.EXTRA_MESSAGE);
-        String name = intent.getStringExtra("name");
-        String id = intent.getStringExtra("id");
-        _name = name;
-        _id = id;
-        message = message + _name + _id;
-        TextView textView = findViewById(R.id.Pesonal_data);
-        textView.setText(message);
-        app = findViewById(R.id.app);
-        app.setOnClickListener(this);
-        // Get the Intent that started this activity and extract the string
-       // Intent intent2 = getIntent();
-       // String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        name = intent.getStringExtra("name");
+        id = intent.getStringExtra("id");
+        email = intent.getStringExtra("email");
+        last_name = intent.getStringExtra("last_name");
+        policy_number = intent.getStringExtra("policy_number");
+        phone_number = intent.getStringExtra("phone_number");
+        nationality = intent.getStringExtra("nationality");
+        age = intent.getStringExtra("age");
+        appointment =  intent.getStringExtra("appointment");
+        results = intent.getStringExtra("results");
 
-        // Capture the layout's TextView and set the string as its text
-        //PersonalData = findViewById(R.id.Pesonal_data);
-        textView.setText(message);}
+
+
+
+        app = findViewById(R.id.appointment);
+        app.setOnClickListener(this);
+        personalInfo = findViewById(R.id.personalInfo);
+        personalInfo.setOnClickListener(this);
+        getResults = findViewById(R.id.getResults);
+        getResults.setOnClickListener(this);
+        aboutus = findViewById(R.id.aboutus);
+        aboutus.setOnClickListener(this);
+        price_list = findViewById(R.id.price_list);
+        price_list.setOnClickListener(this);
+
+
+        }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.app){
+        if(v.getId() == R.id.appointment){
 
             Intent intent1 = new Intent(this, FourthActivity.class);
-            intent1.putExtra("name", _name);
+            intent1.putExtra("name", name);
+            intent1.putExtra("email", email);
+            intent1.putExtra("last_name", last_name);
+            intent1.putExtra("policy_number", policy_number);
+            intent1.putExtra("phone_number", phone_number);
+            startActivity(intent1);
+        }
+        else if(v.getId() == R.id.personalInfo){
+            Intent intent1 = new Intent(this, FifthActivity.class);
+            intent1.putExtra("name", name);
+            intent1.putExtra("email", email);
+            intent1.putExtra("last_name", last_name);
+            intent1.putExtra("policy_number", policy_number);
+            intent1.putExtra("phone_number", phone_number);
+            intent1.putExtra("appointment",appointment );
+            intent1.putExtra("nationality", nationality);
+            intent1.putExtra("age", age);
+
+
+            startActivity(intent1);
+        }
+        else if(v.getId() == R.id.getResults){
+            Intent intent1 = new Intent(this, SixthActivity.class);
+            intent1.putExtra("name", name);
+            intent1.putExtra("policy_number", policy_number);
+            startActivity(intent1);
+        }
+        else if (v.getId() == R.id.aboutus){
+            Intent intent1 = new Intent(this, AboutUs.class);
+            startActivity(intent1);
+        }
+        else if (v.getId() == R.id.price_list){
+            Intent intent1 = new Intent(this, PriceListActivity.class);
             startActivity(intent1);
         }
     }
